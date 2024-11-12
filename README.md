@@ -1,68 +1,123 @@
-Простенькие задачи для тренировки функционального программирования
+# Functional Programming Study Tasks
 
-1. Проверьте, возможно ли изменить список в процессе итерирования.
+## Overview (English)
 
-2. Написать функцию, принимающую 2 списка и возвращающую декартово произведение
-   (использовать itertools.product)
-   
-3. Написать функцию, принимающую строку s и число и возвращающую всевозможные перестановки 
-из n символов в s строке в лексикографическом порядке(использовать itertools.permutations)
-   
-4. Реализовать функцию get_combinations. Должна принимать строку s и число k
-и возвращать все возможные комбинации из символов в строке s с длинами <= k (itertools.combinations)
-   
-5. Функция должна принимать строку s и число k и возвращать все возможные комбинации 
-из символов в строке s с длинами = k с повторениями ( использовать itertools.combinations)
-   
-6. Написать функцию, которая подсчитывает количество подряд идущих символов в строке 
-   (использовать itertools.groupby)
-   
-7. В функцию передается список списков. Нужно вернуть максимум. который достигает выражение
-   (a1*a1 + a2*a2 + an*an). Где ai -- максимальный элемент из iго списка.
-   
-8. Напишите генератор, выводящий первые n чисел Фибоначи.
+This repository contains a series of tasks designed to practice functional programming techniques in Python. Each task encourages the use of higher-order functions, iterators, and generators to solve problems without modifying original data structures unless specified.
 
-9. Реализуйте аналог функций zip, map, enumerate.
+## Tasks
 
-10.Задача состоит в том, чтобы для входного списка списков получить список нечётных по порядку 
-   списков (первый, третий и так далее), оставив в каждом только нечётные по порядку элементы. Например,
-   для из списка [[1, 2, 3], [4, 5, 6], [7, 8, 9]] должен получиться список [[1, 3], [7, 9]].
-   
-   При этом функциональное решение должно вычислять новый список списков на основе оригинального.
-   Оригинальный же список должен оставаться неизменным. У вас должна получиться функция odds_from_odds():
-   
-   Процедурное решение должно изменить список-аргумент по месту, а не возвращать его новую версию
-   (возвращать вообще ничего не нужно!). Постарайтесь обойтись без создания вспомогательных структур
-   в том числе и для обработки вложенных списков: процедурное решение должно быть эффективным с точки зрения
-   использования памяти, ведь для этого мы такой код и пишем!
-   У вас должна получиться процедура keep_odds_from_odds():
+1. **List Modification During Iteration**  
+   Check if it is possible to modify a list while iterating through it.
 
+2. **Cartesian Product**  
+   Write a function that takes two lists and returns their Cartesian product using `itertools.product`.
 
-11. Вам предстоит написать функцию non_empty_truths(), которая с помощью генераторов списков должна вычислять
-    копию входного списка списков, "очищенную" от ложных элементов (не только False, а любых ложных!),
-    а заодно и от пустых списков — таковые могу присутствовать сами по себе или могут получаться после
-    отбрасывания из них всех элементов.
-    
-12.Вам необходимо реализовать функцию number_of_unique_letters(), которая должна подсчитывать количество
-   уникальных букв в строке-аргументе без учёта регистра.
+3. **Permutations of String**  
+   Write a function that takes a string `s` and an integer `n`, and returns all possible `n`-character permutations of `s` in lexicographic order, using `itertools.permutations`.
 
-13.Вам предстоит реализовать три функции, каждая из которых будет работать с двухмерной матрицей,
-   то есть со списком списков (итератором итераторов).
+4. **Combinations with Length <= k**  
+   Implement `get_combinations`. It should take a string `s` and an integer `k`, and return all possible combinations of characters in `s` with lengths <= `k` using `itertools.combinations`.
 
-   each2d(test, matrix) должна проверить, что каждый элемент матрицы matrix удовлетворяет предикату test,
-      и вернуть False, если хотя бы для одного элемента test вернул False. В противном случае функция должна возвращать True.
-   some2d(test, matrix) должна проверить, удовлетворяет ли предикату test хотя бы один элемент матрицы matrix.
-      Как только test возвращает True для какого-либо элемента, функция должна вернуть True,
-      в противном случае (если ни один элемент проверку не прошёл) нужно вернуть False.
-   sum2d(test, matrix) должна возвращать сумму всех элементов матрицы matrix, удовлетворяющих предикату test.
+5. **Combinations of Length k with Repetitions**  
+   Write a function that takes a string `s` and an integer `k`, and returns all possible combinations of characters in `s` with length `k`, allowing repetitions, using `itertools.combinations_with_replacement`.
 
-   Внимание, первые две функции не должны выполнять лишней работы: обход матрицы должен прерываться,
-   как только результат становится ясен.
-   
-14.Вам предстоит потренироваться в написании генераторных функций и написать три штуки:
+6. **Count Consecutive Characters**  
+   Implement a function to count consecutive characters in a string using `itertools.groupby`.
 
-   my_map(f, xs), которая должна работать как упрощённая версия map()
-   my_filter(f, xs), упрощённый вариант filter()
-   replicate_each(n, xs) должен для каждого элемента итератора xs выдавать на выход по n копий этого элемента# study_tasks
-# study_tasks-
-# study_tasks-
+7. **Maximize Expression with Lists**  
+   Write a function that takes a list of lists and returns the maximum value of the expression `(a1 * a1 + a2 * a2 + ... + an * an)`, where `ai` is the largest element in the i-th list.
+
+8. **Fibonacci Generator**  
+   Create a generator that outputs the first `n` Fibonacci numbers.
+
+9. **Custom zip, map, and enumerate**  
+   Implement simplified versions of the functions `zip`, `map`, and `enumerate`.
+
+10. **Odds from Odds**  
+    Implement a function `odds_from_odds()` that, for an input list of lists, returns a new list of lists with only the odd-indexed lists (1st, 3rd, etc.) and, within each, only the odd-indexed elements. Ensure that this is a functional solution and does not modify the original list.
+
+    - Additionally, write a procedure `keep_odds_from_odds()` that modifies the input list in place, retaining only the odd-indexed lists and elements as described above.
+
+11. **Non-Empty Truths**  
+    Write `non_empty_truths()` which takes a list of lists and returns a copy of the input with all false elements (e.g., `False`, `0`, empty strings) removed, as well as any empty lists.
+
+12. **Count Unique Letters**  
+    Implement `number_of_unique_letters()` which counts the number of unique letters in a string, case-insensitive.
+
+13. **Matrix Predicate Functions**  
+    Write three functions that operate on a 2D matrix (a list of lists):
+
+    - `each2d(test, matrix)`: Returns `True` if every element in `matrix` satisfies the predicate `test`; otherwise, returns `False`.
+    - `some2d(test, matrix)`: Returns `True` if at least one element in `matrix` satisfies the predicate `test`; otherwise, returns `False`.
+    - `sum2d(test, matrix)`: Returns the sum of all elements in `matrix` that satisfy the predicate `test`.
+
+    Ensure that `each2d` and `some2d` stop processing as soon as the result is determined.
+
+14. **Generator Functions**  
+    Write three generator functions:
+
+    - `my_map(f, xs)`: A simplified version of `map()`.
+    - `my_filter(f, xs)`: A simplified version of `filter()`.
+    - `replicate_each(n, xs)`: For each element in `xs`, output `n` copies of that element.
+
+---
+
+## Описание задач (Русский)
+
+Этот репозиторий содержит задачи для тренировки навыков функционального программирования на Python. Каждая задача ориентирована на использование функций высшего порядка, итераторов и генераторов для решения задач без изменения исходных структур данных, если это не указано в условиях.
+
+## Задачи
+
+1. **Изменение списка при итерировании**  
+   Проверьте, можно ли изменять список в процессе итерирования по нему.
+
+2. **Декартово произведение**  
+   Напишите функцию, которая принимает два списка и возвращает их декартово произведение, используя `itertools.product`.
+
+3. **Перестановки из строки**  
+   Напишите функцию, которая принимает строку `s` и число `n` и возвращает всевозможные перестановки из `n` символов строки `s` в лексикографическом порядке, используя `itertools.permutations`.
+
+4. **Комбинации с длиной <= k**  
+   Реализуйте `get_combinations`, принимающую строку `s` и число `k`, и возвращающую все возможные комбинации символов строки `s` с длинами <= `k` с помощью `itertools.combinations`.
+
+5. **Комбинации длиной k с повторениями**  
+   Напишите функцию, принимающую строку `s` и число `k`, и возвращающую все возможные комбинации длиной `k` с повторениями, используя `itertools.combinations_with_replacement`.
+
+6. **Подсчет подряд идущих символов**  
+   Реализуйте функцию для подсчета количества подряд идущих символов в строке, используя `itertools.groupby`.
+
+7. **Максимизация выражения с вложенными списками**  
+   Напишите функцию, которая принимает список списков и возвращает максимальное значение выражения `(a1 * a1 + a2 * a2 + ... + an * an)`, где `ai` — максимальный элемент из i-го списка.
+
+8. **Генератор Фибоначчи**  
+   Создайте генератор, который выводит первые `n` чисел Фибоначчи.
+
+9. **Аналоги zip, map и enumerate**  
+   Реализуйте упрощенные версии функций `zip`, `map` и `enumerate`.
+
+10. **Четные из четных**  
+    Напишите функцию `odds_from_odds()`, которая для входного списка списков возвращает новый список списков, содержащий только нечетные по порядку списки (первый, третий и т.д.), и в каждом из них — только нечетные по порядку элементы. Решение должно быть функциональным и не изменять оригинальный список.
+
+    - Также реализуйте процедуру `keep_odds_from_odds()`, которая изменяет список-аргумент по месту, оставляя только нечетные по порядку списки и элементы.
+
+11. **Истинные непустые элементы**  
+    Реализуйте функцию `non_empty_truths()`, которая принимает список списков и возвращает копию входного списка без ложных элементов (например, `False`, `0`, пустые строки) и пустых списков.
+
+12. **Подсчет уникальных букв**  
+    Напишите функцию `number_of_unique_letters()`, которая подсчитывает количество уникальных букв в строке без учета регистра.
+
+13. **Предикаты для матрицы**  
+    Реализуйте три функции, работающие с двухмерной матрицей (список списков):
+
+    - `each2d(test, matrix)`: Возвращает `True`, если каждый элемент матрицы `matrix` удовлетворяет предикату `test`, иначе `False`.
+    - `some2d(test, matrix)`: Возвращает `True`, если хотя бы один элемент матрицы `matrix` удовлетворяет предикату `test`, иначе `False`.
+    - `sum2d(test, matrix)`: Возвращает сумму всех элементов матрицы `matrix`, которые удовлетворяют предикату `test`.
+
+    Обратите внимание, что `each2d` и `some2d` должны прекращать обход матрицы, как только результат становится ясен.
+
+14. **Генераторные функции**  
+    Реализуйте три генераторные функции:
+
+    - `my_map(f, xs)`: упрощенная версия `map()`.
+    - `my_filter(f, xs)`: упрощенная версия `filter()`.
+    - `replicate_each(n, xs)`: для каждого элемента `xs` выдает `n` копий этого элемента.
